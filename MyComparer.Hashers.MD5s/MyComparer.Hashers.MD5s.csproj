@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="$(SolutionDir)\MyList1.DAL\MyList.DAL\MyList.DAL.csproj" />
+    <ProjectReference Include="$(SolutionDir)\MyList1\MyList\MyList.csproj" />
+    <ProjectReference Include="$(SolutionDir)\MyComparer1.Hashers\MyComparer.Hashers\MyComparer.Hashers.csproj" />
+    <ProjectReference Include="$(SolutionDir)\MyComparer1\MyComparer\MyComparer.csproj" />
+  </ItemGroup>
+
+</Project>
