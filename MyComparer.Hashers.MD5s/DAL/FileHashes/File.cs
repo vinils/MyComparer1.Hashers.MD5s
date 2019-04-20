@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using MyListDAL = MyList.DAL;
 
     public abstract class File : FileHash
@@ -12,9 +13,14 @@
 
         protected abstract MyListDAL.IFile ExceptFiles(IEnumerable<MyListDAL.Entities.File> files);
 
-        public void ReloadFiles()
+        public void ReloadFiles(Func<MyListDAL.Entities.File, bool> predicate = null)
         {
-            var newDirectories = ExceptFiles(Files);
+            IEnumerable<MyListDAL.Entities.File> newDirectories = ExceptFiles(Files);
+
+            if (predicate != null)
+            {
+                newDirectories = newDirectories.Where(predicate);
+            }
 
             Load(newDirectories);
         }
